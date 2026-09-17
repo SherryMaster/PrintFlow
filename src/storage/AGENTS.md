@@ -6,8 +6,8 @@ This area owns server side access to private artwork in Cloudflare R2. It keeps 
 
 ## Key files
 
-| File | Owns |
-|---|---|
+| File                                          | Owns                                             |
+| --------------------------------------------- | ------------------------------------------------ |
 | `docs/specs/0001-stack-architecture/index.md` | Current storage security and lifecycle decisions |
 
 ## Conventions

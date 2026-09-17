@@ -6,8 +6,8 @@ This area owns durable background work and the dispatcher that connects committe
 
 ## Key files
 
-| File | Owns |
-|---|---|
+| File                                          | Owns                                                |
+| --------------------------------------------- | --------------------------------------------------- |
 | `docs/specs/0001-stack-architecture/index.md` | Current outbox, retry, lease, and failure decisions |
 
 ## Conventions

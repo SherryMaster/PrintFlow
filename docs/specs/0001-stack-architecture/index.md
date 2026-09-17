@@ -17,28 +17,28 @@ Build one deployable Next.js application. Keep domain modules separate inside `s
 
 ## Proposed stack
 
-| Layer | Choice | Reason |
-|---|---|---|
-| Product shape | Responsive customer and admin web app | One web app covers the pilot without native mobile or a public API. |
-| Architecture | Modular monolith in one repository | One deployable unit is simplest for a small team, while domain modules keep future extraction possible. |
-| Language | TypeScript in strict mode | Shared types reduce drift across forms, server actions, jobs, and database records. |
-| Runtime and package manager | Current supported Node.js release and pnpm with a committed lockfile | This is the direct Next.js path and gives reproducible dependency installs. |
-| Framework | Current stable Next.js App Router | Server Components, Server Actions, and Route Handlers cover public, guest, and admin surfaces in one framework. |
-| User interface | Tailwind CSS and shadcn/ui | The project owns its components while starting from accessible primitives. |
-| Forms and validation | React Hook Form for complex forms, native forms for simple actions, and Zod at server boundaries | Complex print configuration needs good field state, while all trusted validation remains on the server. |
-| Primary database | Supabase Postgres | The domain is relational and needs transactions, constraints, reporting, and future shop ownership. (basis: relational database default, [Supabase Auth](https://supabase.com/docs/guides/auth)) |
-| Data access | Drizzle ORM for routine work, SQL for complex reporting, and versioned SQL migrations | Drizzle keeps types close to SQL without hiding database behavior. (basis: ORM for CRUD and SQL for complexity, [Drizzle PostgreSQL](https://orm.drizzle.team/docs/get-started-postgresql)) |
-| Admin identity | Supabase Auth with email and password, recovery email, and optional TOTP | A managed identity service avoids custom authentication and supports future staff identities. |
-| Guest identity | Random private order token, with only its SHA 256 hash retained after delivery | Guests need private access without an account, and the shop needs safe delivery, rotation, and revocation. |
-| File storage | Private Cloudflare R2 bucket with direct presigned uploads | R2 supports large files, S3 compatible access, 10 GB of current free storage, and free direct egress. (basis: object storage for files, [Cloudflare R2 pricing](https://developers.cloudflare.com/r2/pricing/)) |
-| Email | Resend with React Email templates in the repository | Email content stays versioned with the application and uses a focused transactional provider. (basis: [Resend API](https://resend.com/docs/api-reference/introduction)) |
-| Background work | Postgres outbox plus Inngest durable functions | The outbox records intent with the business transaction, while Inngest provides retries and execution visibility. (basis: transactional outbox, [Inngest Functions](https://www.inngest.com/docs/learn/inngest-functions)) |
-| Data loading | Server Components by default with targeted revalidation | Database access stays on the server and the pilot avoids a second general purpose client cache. |
-| Live updates | Refresh and light polling for active order pages | Status changes are infrequent, so persistent realtime connections add no useful value yet. |
-| Hosting | Vercel previews and Vercel Pro for the commercial pilot | This is the lowest friction Next.js deployment, but commercial use requires a paid plan. (basis: [Vercel plan rules](https://vercel.com/docs/plans/hobby)) |
-| Observability | Structured Vercel logs plus Sentry errors and traces | Logs retain request context while Sentry groups failures into actionable incidents. (basis: observability from day one, [Vercel Observability](https://vercel.com/docs/observability)) |
-| Tests | Vitest, Testing Library, and Playwright | Fast logic tests cover rules, component tests cover behavior, and browser tests prove real customer and admin journeys. (basis: test pyramid, [Playwright](https://playwright.dev/docs/intro)) |
-| Delivery | GitHub Actions checks, Vercel previews, and reviewed production promotion | Pull requests get repeatable checks and a real preview before release. |
+| Layer                       | Choice                                                                                           | Reason                                                                                                                                                                                                                     |
+| --------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Product shape               | Responsive customer and admin web app                                                            | One web app covers the pilot without native mobile or a public API.                                                                                                                                                        |
+| Architecture                | Modular monolith in one repository                                                               | One deployable unit is simplest for a small team, while domain modules keep future extraction possible.                                                                                                                    |
+| Language                    | TypeScript in strict mode                                                                        | Shared types reduce drift across forms, server actions, jobs, and database records.                                                                                                                                        |
+| Runtime and package manager | Current supported Node.js release and pnpm with a committed lockfile                             | This is the direct Next.js path and gives reproducible dependency installs.                                                                                                                                                |
+| Framework                   | Current stable Next.js App Router                                                                | Server Components, Server Actions, and Route Handlers cover public, guest, and admin surfaces in one framework.                                                                                                            |
+| User interface              | Tailwind CSS and shadcn/ui                                                                       | The project owns its components while starting from accessible primitives.                                                                                                                                                 |
+| Forms and validation        | React Hook Form for complex forms, native forms for simple actions, and Zod at server boundaries | Complex print configuration needs good field state, while all trusted validation remains on the server.                                                                                                                    |
+| Primary database            | Supabase Postgres                                                                                | The domain is relational and needs transactions, constraints, reporting, and future shop ownership. (basis: relational database default, [Supabase Auth](https://supabase.com/docs/guides/auth))                           |
+| Data access                 | Drizzle ORM for routine work, SQL for complex reporting, and versioned SQL migrations            | Drizzle keeps types close to SQL without hiding database behavior. (basis: ORM for CRUD and SQL for complexity, [Drizzle PostgreSQL](https://orm.drizzle.team/docs/get-started-postgresql))                                |
+| Admin identity              | Supabase Auth with email and password, recovery email, and optional TOTP                         | A managed identity service avoids custom authentication and supports future staff identities.                                                                                                                              |
+| Guest identity              | Random private order token, with only its SHA 256 hash retained after delivery                   | Guests need private access without an account, and the shop needs safe delivery, rotation, and revocation.                                                                                                                 |
+| File storage                | Private Cloudflare R2 bucket with direct presigned uploads                                       | R2 supports large files, S3 compatible access, 10 GB of current free storage, and free direct egress. (basis: object storage for files, [Cloudflare R2 pricing](https://developers.cloudflare.com/r2/pricing/))            |
+| Email                       | Resend with React Email templates in the repository                                              | Email content stays versioned with the application and uses a focused transactional provider. (basis: [Resend API](https://resend.com/docs/api-reference/introduction))                                                    |
+| Background work             | Postgres outbox plus Inngest durable functions                                                   | The outbox records intent with the business transaction, while Inngest provides retries and execution visibility. (basis: transactional outbox, [Inngest Functions](https://www.inngest.com/docs/learn/inngest-functions)) |
+| Data loading                | Server Components by default with targeted revalidation                                          | Database access stays on the server and the pilot avoids a second general purpose client cache.                                                                                                                            |
+| Live updates                | Refresh and light polling for active order pages                                                 | Status changes are infrequent, so persistent realtime connections add no useful value yet.                                                                                                                                 |
+| Hosting                     | Vercel previews and Vercel Pro for the commercial pilot                                          | This is the lowest friction Next.js deployment, but commercial use requires a paid plan. (basis: [Vercel plan rules](https://vercel.com/docs/plans/hobby))                                                                 |
+| Observability               | Structured Vercel logs plus Sentry errors and traces                                             | Logs retain request context while Sentry groups failures into actionable incidents. (basis: observability from day one, [Vercel Observability](https://vercel.com/docs/observability))                                     |
+| Tests                       | Vitest, Testing Library, and Playwright                                                          | Fast logic tests cover rules, component tests cover behavior, and browser tests prove real customer and admin journeys. (basis: test pyramid, [Playwright](https://playwright.dev/docs/intro))                             |
+| Delivery                    | GitHub Actions checks, Vercel previews, and reviewed production promotion                        | Pull requests get repeatable checks and a real preview before release.                                                                                                                                                     |
 
 ## Architecture boundaries
 
@@ -118,79 +118,79 @@ Alert on any dead outbox row, no dispatcher heartbeat for 5 minutes, pending out
 
 ## Capacity and cost assumptions
 
-* The pilot supports up to 50 orders per day and 10 simultaneous users without an architecture change.
-* R2 currently includes 10 GB at no charge, but the upload and retention limits do not guarantee that the pilot stays inside it. At the full design capacity, storage becomes paid.
-* Use 25 MB of accepted artwork per order as the initial planning average. At 50 orders per day with 90 day retention, steady artwork alone is about 112.5 GB before backups and active work.
-* Maintain an application byte ledger from accepted object sizes and reconcile it daily with R2 provider measurements. Alert at 7.5 GB and require billing to be enabled before 9 GB or before the commercial pilot opens, whichever comes first.
-* Set an initial R2 storage budget alert at USD 5 per month. Passing it triggers an operator review, not automatic deletion of active or retained files.
-* Development should use free provider plans where their terms allow it.
-* Commercial production includes at least Vercel Pro, currently USD 20 per month before tax and extra usage. Other providers may require paid plans as volume, backup needs, email volume, or support expectations grow.
-* The pilot has no named compliance framework or Pakistan only residency requirement. Contact details and artwork are private customer data and follow least privilege, explicit retention, and secure deletion rules.
+- The pilot supports up to 50 orders per day and 10 simultaneous users without an architecture change.
+- R2 currently includes 10 GB at no charge, but the upload and retention limits do not guarantee that the pilot stays inside it. At the full design capacity, storage becomes paid.
+- Use 25 MB of accepted artwork per order as the initial planning average. At 50 orders per day with 90 day retention, steady artwork alone is about 112.5 GB before backups and active work.
+- Maintain an application byte ledger from accepted object sizes and reconcile it daily with R2 provider measurements. Alert at 7.5 GB and require billing to be enabled before 9 GB or before the commercial pilot opens, whichever comes first.
+- Set an initial R2 storage budget alert at USD 5 per month. Passing it triggers an operator review, not automatic deletion of active or retained files.
+- Development should use free provider plans where their terms allow it.
+- Commercial production includes at least Vercel Pro, currently USD 20 per month before tax and extra usage. Other providers may require paid plans as volume, backup needs, email volume, or support expectations grow.
+- The pilot has no named compliance framework or Pakistan only residency requirement. Contact details and artwork are private customer data and follow least privilege, explicit retention, and secure deletion rules.
 
 ## Configuration required
 
 Validate configuration at startup. Keep local values in ignored files, hosted values in Vercel, and workflow values in GitHub encrypted secrets.
 
-* `DATABASE_URL`: pooled application connection
-* `DATABASE_DIRECT_URL`: direct migration and backup connection
-* `NEXT_PUBLIC_SUPABASE_URL`: browser safe Supabase project URL
-* `NEXT_PUBLIC_SUPABASE_ANON_KEY`: browser safe Supabase public key
-* `SUPABASE_SERVICE_ROLE_KEY`: server only administration key
-* `R2_ACCOUNT_ID`: private object storage account
-* `R2_ARTWORK_ACCESS_KEY_ID`, `R2_ARTWORK_SECRET_ACCESS_KEY`: runtime credentials limited to artwork buckets
-* `R2_BACKUP_ACCESS_KEY_ID`, `R2_BACKUP_SECRET_ACCESS_KEY`: workflow credentials limited to the backup bucket
-* `R2_ARTWORK_BUCKET`: quarantined and approved customer artwork
-* `R2_BACKUP_BUCKET`: encrypted database backups, isolated from artwork access
-* `RESEND_API_KEY`, `EMAIL_FROM`: transactional email access and verified sender on a dedicated shop subdomain
-* `INNGEST_EVENT_KEY`, `INNGEST_SIGNING_KEY`: background event and request verification
-* `SENTRY_DSN`, `SENTRY_AUTH_TOKEN`: error delivery and release source maps
-* `TURNSTILE_SECRET_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`: public abuse checks
-* `RATE_LIMIT_HASH_KEY`: HMAC key for IP and recovery identity hashes
-* `LINK_PAYLOAD_ENCRYPTION_KEY`: encryption for raw guest links waiting for email acceptance
-* `BACKUP_ENCRYPTION_KEY`: encryption for database backups, stored only in trusted workflow secrets
-* `OPERATIONS_ALERT_EMAIL`: project operator who receives actionable alerts
-* `APP_BASE_URL`: canonical origin used in links and callback validation
-* `SHOP_ID`: the configured V1 shop identity
+- `DATABASE_URL`: pooled application connection
+- `DATABASE_DIRECT_URL`: direct migration and backup connection
+- `NEXT_PUBLIC_SUPABASE_URL`: browser safe Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: browser safe Supabase public key
+- `SUPABASE_SERVICE_ROLE_KEY`: server only administration key
+- `R2_ACCOUNT_ID`: private object storage account
+- `R2_ARTWORK_ACCESS_KEY_ID`, `R2_ARTWORK_SECRET_ACCESS_KEY`: runtime credentials limited to artwork buckets
+- `R2_BACKUP_ACCESS_KEY_ID`, `R2_BACKUP_SECRET_ACCESS_KEY`: workflow credentials limited to the backup bucket
+- `R2_ARTWORK_BUCKET`: quarantined and approved customer artwork
+- `R2_BACKUP_BUCKET`: encrypted database backups, isolated from artwork access
+- `RESEND_API_KEY`, `EMAIL_FROM`: transactional email access and verified sender on a dedicated shop subdomain
+- `INNGEST_EVENT_KEY`, `INNGEST_SIGNING_KEY`: background event and request verification
+- `SENTRY_DSN`, `SENTRY_AUTH_TOKEN`: error delivery and release source maps
+- `TURNSTILE_SECRET_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`: public abuse checks
+- `RATE_LIMIT_HASH_KEY`: HMAC key for IP and recovery identity hashes
+- `LINK_PAYLOAD_ENCRYPTION_KEY`: encryption for raw guest links waiting for email acceptance
+- `BACKUP_ENCRYPTION_KEY`: encryption for database backups, stored only in trusted workflow secrets
+- `OPERATIONS_ALERT_EMAIL`: project operator who receives actionable alerts
+- `APP_BASE_URL`: canonical origin used in links and callback validation
+- `SHOP_ID`: the configured V1 shop identity
 
 ## Consequences
 
 **Positive**
 
-* One application is fast to build, debug, and deploy.
-* Postgres fits orders, jobs, prices, approvals, and reporting without a future data migration caused by the database category.
-* Explicit shop ownership, server only access, and portable object storage preserve the main future paths.
-* Managed identity, email, jobs, and monitoring reduce custom security and operations work.
+- One application is fast to build, debug, and deploy.
+- Postgres fits orders, jobs, prices, approvals, and reporting without a future data migration caused by the database category.
+- Explicit shop ownership, server only access, and portable object storage preserve the main future paths.
+- Managed identity, email, jobs, and monitoring reduce custom security and operations work.
 
 **Negative and tradeoffs**
 
-* The stack depends on Vercel, Supabase, Cloudflare, Resend, Inngest, and Sentry. Provider outages and dashboard work become part of operations.
-* Vercel requires a paid plan for the commercial pilot. The development target is free, not the production business.
-* The free Supabase plan lacks managed backups and may pause after inactivity. The project therefore owns backup automation and restoration testing.
-* R2 usage is expected to exceed its free allowance at the full pilot capacity. Production needs billing enabled and a small explicit storage budget.
-* Automated malware scanning is absent at first. Quarantine, signature checks, download controls, and human review reduce risk but do not prove a file is clean.
-* Optional TOTP leaves password compromise as a larger risk than mandatory second factor authentication.
-* Serverless limits make Vercel unsuitable for long file processing. Inngest steps must stay bounded, and future heavy file work may need a container worker.
+- The stack depends on Vercel, Supabase, Cloudflare, Resend, Inngest, and Sentry. Provider outages and dashboard work become part of operations.
+- Vercel requires a paid plan for the commercial pilot. The development target is free, not the production business.
+- The free Supabase plan lacks managed backups and may pause after inactivity. The project therefore owns backup automation and restoration testing.
+- R2 usage is expected to exceed its free allowance at the full pilot capacity. Production needs billing enabled and a small explicit storage budget.
+- Automated malware scanning is absent at first. Quarantine, signature checks, download controls, and human review reduce risk but do not prove a file is clean.
+- Optional TOTP leaves password compromise as a larger risk than mandatory second factor authentication.
+- Serverless limits make Vercel unsuitable for long file processing. Inngest steps must stay bounded, and future heavy file work may need a container worker.
 
 **Neutral**
 
-* There is no general cache, dedicated search engine, realtime subscription layer, public API, or microservice boundary in V1.
-* Pricing and order details remain the responsibility of later domain specs.
-* The scaffold follows the Tracer Bullet approach. It should establish the smallest real path across app, database, auth, storage, email, jobs, and deployment before adding breadth.
+- There is no general cache, dedicated search engine, realtime subscription layer, public API, or microservice boundary in V1.
+- Pricing and order details remain the responsibility of later domain specs.
+- The scaffold follows the Tracer Bullet approach. It should establish the smallest real path across app, database, auth, storage, email, jobs, and deployment before adding breadth.
 
 ## Follow-up
 
-* [ ] Record `pnpm`, `drizzle`, `zod`, `typescript-advanced-types`, `vitest`, `react-testing-library`, `github-actions-templates`, and `tailwind-css-patterns` conventions in root `AGENTS.md`, because they affect the whole project.
-* [ ] Record `cloudflare-r2` conventions in `src/storage/AGENTS.md`, with a pointer from root `AGENTS.md`.
-* [ ] Record `inngest-setup` and `inngest-durable-functions` conventions in `src/jobs/AGENTS.md`, with a pointer from root `AGENTS.md`.
-* [ ] Record `react-hook-form` conventions in `src/ui/AGENTS.md`, with a pointer from root `AGENTS.md`.
-* [ ] Record `sentry-sdk-setup` conventions in `src/observability/AGENTS.md`, with a pointer from root `AGENTS.md`.
-* [ ] Confirm the shop controls a domain and can publish DNS records for the dedicated transactional email subdomain before real email testing.
-* [ ] Recheck provider prices, free allowances, commercial terms, and South Asia region availability immediately before pilot launch.
-* [ ] Add a paid malware scanning service when the pilot budget permits it, or before accepting risky formats identified by the artwork spec.
-* [ ] The scaffold should pin compatible Node.js, Next.js, pnpm, Drizzle, and database driver versions, then record the pooled application connection mode and direct migration connection.
-* [ ] The shop and order data model spec should name the authoritative timestamps for session creation, order completion, cancellation, retention, outbox terminal state, and storage usage.
-* [ ] The first order flow spec should set a 30 second starting poll interval for active guest status pages, a 5 minute private download URL, and signature verification for every provider webhook.
-* [ ] The operating readiness spec should decide whether active artwork needs paid replication outside R2 before launch.
+- [ ] Record `pnpm`, `drizzle`, `zod`, `typescript-advanced-types`, `vitest`, `react-testing-library`, `github-actions-templates`, and `tailwind-css-patterns` conventions in root `AGENTS.md`, because they affect the whole project.
+- [ ] Record `cloudflare-r2` conventions in `src/storage/AGENTS.md`, with a pointer from root `AGENTS.md`.
+- [ ] Record `inngest-setup` and `inngest-durable-functions` conventions in `src/jobs/AGENTS.md`, with a pointer from root `AGENTS.md`.
+- [ ] Record `react-hook-form` conventions in `src/ui/AGENTS.md`, with a pointer from root `AGENTS.md`.
+- [ ] Record `sentry-sdk-setup` conventions in `src/observability/AGENTS.md`, with a pointer from root `AGENTS.md`.
+- [ ] Confirm the shop controls a domain and can publish DNS records for the dedicated transactional email subdomain before real email testing.
+- [ ] Recheck provider prices, free allowances, commercial terms, and South Asia region availability immediately before pilot launch.
+- [ ] Add a paid malware scanning service when the pilot budget permits it, or before accepting risky formats identified by the artwork spec.
+- [ ] The scaffold should pin compatible Node.js, Next.js, pnpm, Drizzle, and database driver versions, then record the pooled application connection mode and direct migration connection.
+- [ ] The shop and order data model spec should name the authoritative timestamps for session creation, order completion, cancellation, retention, outbox terminal state, and storage usage.
+- [ ] The first order flow spec should set a 30 second starting poll interval for active guest status pages, a 5 minute private download URL, and signature verification for every provider webhook.
+- [ ] The operating readiness spec should decide whether active artwork needs paid replication outside R2 before launch.
 
 ## Rationale
 

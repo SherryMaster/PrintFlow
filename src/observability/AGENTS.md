@@ -6,8 +6,8 @@ This area owns structured application logging plus Sentry error and trace setup.
 
 ## Key files
 
-| File | Owns |
-|---|---|
+| File                                          | Owns                                                |
+| --------------------------------------------- | --------------------------------------------------- |
 | `docs/specs/0001-stack-architecture/index.md` | Current logging, monitoring, and alerting decisions |
 
 ## Conventions

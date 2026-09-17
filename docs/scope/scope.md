@@ -21,20 +21,20 @@ Your admin can also enter walk in and phone orders. One workspace holds services
 
 ## At a glance
 
-| # | Feature | Phase | Status |
-|---|---------|-------|--------|
-| 1 | Stack and architecture | Foundation | done |
-| 2 | Coding standards and tooling | Foundation | planned |
-| 3 | Shop and order data model | Foundation | planned |
-| 4 | Design system and UI foundation | Foundation | planned |
-| 5 | One standard job through pickup | Slice 1 | planned |
-| 6 | Full service catalog and configurable pricing | Slice 2 | planned |
-| 7 | Multiple jobs in one order | Slice 3 | planned |
-| 8 | Custom quotes and customer acceptance | Slice 4 | planned |
-| 9 | Artwork replacements and proof approval | Slice 5 | planned |
-| 10 | Daily shop order management | Slice 6 | planned |
-| 11 | Public shop and service discovery | Slice 7 | planned |
-| 12 | Pilot reliability and operating readiness | Slice 8 | planned |
+| #   | Feature                                       | Phase      | Status      |
+| --- | --------------------------------------------- | ---------- | ----------- |
+| 1   | Stack and architecture                        | Foundation | done        |
+| 2   | Coding standards and tooling                  | Foundation | in-progress |
+| 3   | Shop and order data model                     | Foundation | planned     |
+| 4   | Design system and UI foundation               | Foundation | planned     |
+| 5   | One standard job through pickup               | Slice 1    | planned     |
+| 6   | Full service catalog and configurable pricing | Slice 2    | planned     |
+| 7   | Multiple jobs in one order                    | Slice 3    | planned     |
+| 8   | Custom quotes and customer acceptance         | Slice 4    | planned     |
+| 9   | Artwork replacements and proof approval       | Slice 5    | planned     |
+| 10  | Daily shop order management                   | Slice 6    | planned     |
+| 11  | Public shop and service discovery             | Slice 7    | planned     |
+| 12  | Pilot reliability and operating readiness     | Slice 8    | planned     |
 
 ## Foundations
 
@@ -52,13 +52,23 @@ Choose a maintainable structure for your medium sized app and create a runnable 
 - [x] Verify it: `/check verify stack and architecture`
 - [x] Test it: `/test stack and architecture`
 
-### 2. Coding standards and tooling · planned
+### 2. Coding standards and tooling · in-progress
 
 Capture conventions from the real scaffold, then establish routine checks so later slices follow the same standards.
 
 **Done when:** project guidance reflects the actual scaffold, and formatting, linting, type checks where applicable, and automated build checks run successfully.
 
-- [ ] Capture conventions and tooling choices: `/audit`
+**Spec:** [0002](../specs/0002-coding-standards-tooling.md)
+**Code:** [quality scripts](../../package.json), [format scope](../../.prettierignore), and [CI workflow](../../.github/workflows/ci.yml)
+
+- [x] Choose the formatter and automated checks (spec): `/architect coding standards and tooling`
+- [x] Capture conventions and tooling choices: `/audit`
+- [x] Build it: `/develop coding standards and tooling`
+  - [x] Establish the local and CI quality path with the pinned formatter, ordered checks, least privilege workflow, and clean tree assertion (**AC-1**, **AC-2**, **AC-4**, **AC-5**, **AC-7**)
+  - [x] Format the accepted repository scope and prove clean, failing, and non rewriting check behavior (**AC-1**, **AC-2**, **AC-3**, **AC-5**, **AC-7**)
+  - [x] Align root contributor guidance with the implemented scripts and workflow (**AC-6**)
+- [ ] Verify it: `/check verify coding standards and tooling`
+- [ ] Test it: `/test coding standards and tooling`
 
 ### 3. Shop and order data model · planned · needs a decision
 

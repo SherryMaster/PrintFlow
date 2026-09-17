@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "PrintFlow",
-  description: "Print order intake and production workflow for a digital print shop.",
+  description:
+    "Print order intake and production workflow for a digital print shop.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

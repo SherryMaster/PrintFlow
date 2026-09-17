@@ -23,12 +23,17 @@ Tracer Bullet (make one real order work through the whole app, then expand that 
 ```bash
 pnpm install --frozen-lockfile
 pnpm dev
+pnpm format
+pnpm format:check
 pnpm lint
 pnpm typecheck
+pnpm test
 pnpm build
-pnpm exec vitest run
+pnpm check
 pnpm exec playwright test
 ```
+
+`pnpm check` is the routine local quality gate. It validates formatting, linting, types, unit tests, and the production build in the same order as CI.
 
 ## Rules
 

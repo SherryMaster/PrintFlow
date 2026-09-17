@@ -6,10 +6,10 @@ This area owns shared interface primitives used by customer and admin pages. It 
 
 ## Key files
 
-| File | Owns |
-|---|---|
-| `src/app/globals.css` | Global Tailwind CSS import, theme tokens, and page colors |
-| `docs/specs/0001-stack-architecture/index.md` | Current interface, form, and data loading decisions |
+| File                                          | Owns                                                      |
+| --------------------------------------------- | --------------------------------------------------------- |
+| `src/app/globals.css`                         | Global Tailwind CSS import, theme tokens, and page colors |
+| `docs/specs/0001-stack-architecture/index.md` | Current interface, form, and data loading decisions       |
 
 ## Conventions
 
