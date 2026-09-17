@@ -56,3 +56,10 @@ pnpm exec playwright test
 - [tailwind-css-patterns](.agents/skills/tailwind-css-patterns/): `giuseppe-trisciuoglio/developer-kit`, Tailwind CSS layout and styling patterns.
 
 MCP servers: Playwright (`@playwright/mcp@latest`, connected).
+
+## Context files
+
+- [src/storage/AGENTS.md](src/storage/AGENTS.md) (private artwork storage and upload safety)
+- [src/jobs/AGENTS.md](src/jobs/AGENTS.md) (durable background work and outbox processing)
+- [src/ui/AGENTS.md](src/ui/AGENTS.md) (shared form and interface conventions)
+- [src/observability/AGENTS.md](src/observability/AGENTS.md) (logging, errors, and tracing)
