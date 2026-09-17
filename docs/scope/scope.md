@@ -24,7 +24,7 @@ Your admin can also enter walk in and phone orders. One workspace holds services
 | #   | Feature                                       | Phase      | Status      |
 | --- | --------------------------------------------- | ---------- | ----------- |
 | 1   | Stack and architecture                        | Foundation | done        |
-| 2   | Coding standards and tooling                  | Foundation | in-progress |
+| 2   | Coding standards and tooling                  | Foundation | done        |
 | 3   | Shop and order data model                     | Foundation | planned     |
 | 4   | Design system and UI foundation               | Foundation | planned     |
 | 5   | One standard job through pickup               | Slice 1    | planned     |
@@ -52,7 +52,7 @@ Choose a maintainable structure for your medium sized app and create a runnable 
 - [x] Verify it: `/check verify stack and architecture`
 - [x] Test it: `/test stack and architecture`
 
-### 2. Coding standards and tooling · in-progress
+### 2. Coding standards and tooling · done
 
 Capture conventions from the real scaffold, then establish routine checks so later slices follow the same standards.
 
@@ -68,7 +68,7 @@ Capture conventions from the real scaffold, then establish routine checks so lat
   - [x] Format the accepted repository scope and prove clean, failing, and non rewriting check behavior (**AC-1**, **AC-2**, **AC-3**, **AC-5**, **AC-7**)
   - [x] Align root contributor guidance with the implemented scripts and workflow (**AC-6**)
 - [x] Verify it: `/check verify coding standards and tooling`
-- [ ] Test it: `/test coding standards and tooling`
+- [x] Test it: `/test coding standards and tooling`
 
 ### 3. Shop and order data model · planned · needs a decision
 

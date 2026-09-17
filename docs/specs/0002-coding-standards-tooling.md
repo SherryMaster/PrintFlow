@@ -1,7 +1,7 @@
 # 0002. Coding standards and tooling
 
 **Date**: 2026-09-17
-**Status**: In Progress
+**Status**: Accepted
 
 ## Summary
 
