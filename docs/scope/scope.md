@@ -67,7 +67,7 @@ Capture conventions from the real scaffold, then establish routine checks so lat
   - [x] Establish the local and CI quality path with the pinned formatter, ordered checks, least privilege workflow, and clean tree assertion (**AC-1**, **AC-2**, **AC-4**, **AC-5**, **AC-7**)
   - [x] Format the accepted repository scope and prove clean, failing, and non rewriting check behavior (**AC-1**, **AC-2**, **AC-3**, **AC-5**, **AC-7**)
   - [x] Align root contributor guidance with the implemented scripts and workflow (**AC-6**)
-- [ ] Verify it: `/check verify coding standards and tooling`
+- [x] Verify it: `/check verify coding standards and tooling`
 - [ ] Test it: `/test coding standards and tooling`
 
 ### 3. Shop and order data model · planned · needs a decision
