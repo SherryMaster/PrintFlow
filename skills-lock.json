@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "skills": {
+    "cloudflare-r2": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/cloudflare-r2/skills/cloudflare-r2/SKILL.md",
+      "computedHash": "0b85d438ef70a9f8009a44e867999cc94cbc96d970ccb71b75f8f066d79e09ff"
+    },
+    "drizzle": {
+      "source": "bobmatnyc/claude-mpm-skills",
+      "sourceType": "github",
+      "skillPath": "toolchains/typescript/data/drizzle/SKILL.md",
+      "computedHash": "1833b9288692060090de3e8ca1e772b5e3bbf928c9d44a20bb4d5b6766b019f2"
+    },
+    "github-actions-templates": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/cicd-automation/skills/github-actions-templates/SKILL.md",
+      "computedHash": "93e92fd674dea084628e95f9c48af806f9672ac08f815c84f85adedb55742c59"
+    },
+    "inngest-durable-functions": {
+      "source": "inngest/inngest-skills",
+      "sourceType": "github",
+      "skillPath": "skills/inngest-durable-functions/SKILL.md",
+      "computedHash": "391dc92b29b79e5ac3b623a1524342b781ba260e8e298e329cd85ceb53019033"
+    },
+    "inngest-setup": {
+      "source": "inngest/inngest-skills",
+      "sourceType": "github",
+      "skillPath": "skills/inngest-setup/SKILL.md",
+      "computedHash": "13f7025183bcfea6ebb5e27b1bfa5cbf8f3570847aba144538af12854667d04a"
+    },
+    "playwright-cli": {
+      "source": "microsoft/playwright-cli",
+      "sourceType": "github",
+      "skillPath": "skills/playwright-cli/SKILL.md",
+      "computedHash": "9fb3a1b16a431aa5e27ef05dda32e39215c8a8553b7093cdc737367d4a0c61f0"
+    },
+    "pnpm": {
+      "source": "antfu/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pnpm/SKILL.md",
+      "computedHash": "2ec08c851c6f901d4ed72c21b826416ed074a487db65662b36249418afd728bf"
+    },
+    "react-hook-form": {
+      "source": "pproenca/dot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/.curated/react-hook-form/SKILL.md",
+      "computedHash": "e9881245bb3f993f93c9fce336ca7a517ce39864aa46c95d04238fc5ebc4e4d1"
+    },
+    "react-testing-library": {
+      "source": "itechmeat/llm-code",
+      "sourceType": "github",
+      "skillPath": "skills/react-testing-library/SKILL.md",
+      "computedHash": "a3d1d60fcdaed7618457319ddc7ce7abf934c73a9ba92060ce3fcac05a978c8c"
+    },
+    "sentry-sdk-setup": {
+      "source": "getsentry/sentry-for-ai",
+      "sourceType": "github",
+      "skillPath": "skills-legacy/sentry-sdk-setup/SKILL.md",
+      "computedHash": "d7fb017bcc2e3eb93280843b3343cc3aa8040a8667208c1ee083738be6420b7a"
+    },
+    "tailwind-css-patterns": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "skillPath": "plugins/developer-kit-typescript/skills/tailwind-css-patterns/SKILL.md",
+      "computedHash": "6092620c3af955a46ea2b94ca8a40197ac8392e6bbdc8c7515659328b186c770"
+    },
+    "typescript-advanced-types": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/javascript-typescript/skills/typescript-advanced-types/SKILL.md",
+      "computedHash": "8cbf2bf600f392d7260e476e3202932a876e2281cda3b15a8b6a5a43f383252d"
+    },
+    "vitest": {
+      "source": "antfu/skills",
+      "sourceType": "github",
+      "skillPath": "skills/vitest/SKILL.md",
+      "computedHash": "943d436114c677802426741980146c07560bf375297666b03062444f4b98a785"
+    },
+    "zod": {
+      "source": "pproenca/dot-skills",
+      "sourceType": "github",
+      "skillPath": "skills/.curated/zod/SKILL.md",
+      "computedHash": "c69b5133b65643317236707f2cd3e521b4fc6e5ee5fd6c6c00cf62a37dfd0144"
+    }
+  }
+}
