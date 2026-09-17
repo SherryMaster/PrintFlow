@@ -21,20 +21,20 @@ Your admin can also enter walk in and phone orders. One workspace holds services
 
 ## At a glance
 
-| #   | Feature                                       | Phase      | Status      |
-| --- | --------------------------------------------- | ---------- | ----------- |
-| 1   | Stack and architecture                        | Foundation | done        |
-| 2   | Coding standards and tooling                  | Foundation | done        |
-| 3   | Shop and order data model                     | Foundation | planned     |
-| 4   | Design system and UI foundation               | Foundation | planned     |
-| 5   | One standard job through pickup               | Slice 1    | planned     |
-| 6   | Full service catalog and configurable pricing | Slice 2    | planned     |
-| 7   | Multiple jobs in one order                    | Slice 3    | planned     |
-| 8   | Custom quotes and customer acceptance         | Slice 4    | planned     |
-| 9   | Artwork replacements and proof approval       | Slice 5    | planned     |
-| 10  | Daily shop order management                   | Slice 6    | planned     |
-| 11  | Public shop and service discovery             | Slice 7    | planned     |
-| 12  | Pilot reliability and operating readiness     | Slice 8    | planned     |
+| #   | Feature                                       | Phase      | Status  |
+| --- | --------------------------------------------- | ---------- | ------- |
+| 1   | Stack and architecture                        | Foundation | done    |
+| 2   | Coding standards and tooling                  | Foundation | done    |
+| 3   | Shop and order data model                     | Foundation | planned |
+| 4   | Design system and UI foundation               | Foundation | planned |
+| 5   | One standard job through pickup               | Slice 1    | planned |
+| 6   | Full service catalog and configurable pricing | Slice 2    | planned |
+| 7   | Multiple jobs in one order                    | Slice 3    | planned |
+| 8   | Custom quotes and customer acceptance         | Slice 4    | planned |
+| 9   | Artwork replacements and proof approval       | Slice 5    | planned |
+| 10  | Daily shop order management                   | Slice 6    | planned |
+| 11  | Public shop and service discovery             | Slice 7    | planned |
+| 12  | Pilot reliability and operating readiness     | Slice 8    | planned |
 
 ## Foundations
 
