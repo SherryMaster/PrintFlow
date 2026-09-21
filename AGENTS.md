@@ -29,6 +29,11 @@ pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
+pnpm db:generate
+pnpm db:migrate
+pnpm db:check
+pnpm db:review
+pnpm db:preflight
 pnpm check
 pnpm exec playwright test
 ```
@@ -64,6 +69,12 @@ MCP servers: Playwright (`@playwright/mcp@latest`, connected).
 
 ## Context files
 
+- [src/db/AGENTS.md](src/db/AGENTS.md): database schema, runtime client, numeric contracts, and transaction boundaries
+- [src/modules/catalog/AGENTS.md](src/modules/catalog/AGENTS.md): versioned service and price publication commands
+- [src/modules/orders/AGENTS.md](src/modules/orders/AGENTS.md): order lifecycle, quotes, artwork, guest access, and projections
+- [src/modules/shop/AGENTS.md](src/modules/shop/AGENTS.md): validated pilot shop bootstrap and ownership rules
+- [drizzle/AGENTS.md](drizzle/AGENTS.md): reviewed Postgres migrations and schema safety checks
+- [scripts/AGENTS.md](scripts/AGENTS.md): database preflight and migration review scripts
 - [src/storage/AGENTS.md](src/storage/AGENTS.md) (private artwork storage and upload safety)
 - [src/jobs/AGENTS.md](src/jobs/AGENTS.md) (durable background work and outbox processing)
 - [src/ui/AGENTS.md](src/ui/AGENTS.md) (shared form and interface conventions)

@@ -8,20 +8,29 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:check": "drizzle-kit check",
+    "db:review": "node scripts/review-data-model-migrations.mjs",
+    "db:preflight": "node scripts/check-migration-connection.mjs",
     "start": "next start",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint",
-    "typecheck": "next typegen && tsc --noEmit",
+    "typecheck": "NODE_ENV=production next typegen && tsc --noEmit",
     "test": "vitest run",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "dependencies": {
+    "drizzle-orm": "0.45.2",
     "next": "16.3.5",
+    "postgres": "3.4.9",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@next/env": "16.3.5",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/dom": "^10.4.2",
@@ -32,6 +41,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.1.1",
+    "drizzle-kit": "0.31.10",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
     "jsdom": "^30.0.1",
