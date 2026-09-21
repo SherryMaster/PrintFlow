@@ -25,7 +25,7 @@ Your admin can also enter walk in and phone orders. One workspace holds services
 | --- | --------------------------------------------- | ---------- | ------- |
 | 1   | Stack and architecture                        | Foundation | done    |
 | 2   | Coding standards and tooling                  | Foundation | done    |
-| 3   | Shop and order data model                     | Foundation | planned |
+| 3   | Shop and order data model                     | Foundation | done    |
 | 4   | Design system and UI foundation               | Foundation | planned |
 | 5   | One standard job through pickup               | Slice 1    | planned |
 | 6   | Full service catalog and configurable pricing | Slice 2    | planned |
@@ -70,13 +70,23 @@ Capture conventions from the real scaffold, then establish routine checks so lat
 - [x] Verify it: `/check verify coding standards and tooling`
 - [x] Test it: `/test coding standards and tooling`
 
-### 3. Shop and order data model · planned · needs a decision
+### 3. Shop and order data model · done
 
 Define shop ownership and the relationships between services, pricing, orders, jobs, artwork versions, quotes, approvals, and production history. Guest contact details belong to orders without requiring a customer account.
 
 **Done when:** the model supports several jobs per order, immutable submitted configurations and price snapshots, quote revisions, exact artwork approvals, separate job and order progress, and admin activity history; later catalog changes cannot rewrite existing orders; money, units, rounding, and time rules are recorded.
 
-- [ ] Design it (spec): `/architect shop and order data model`
+**Spec:** [0003](../specs/0003-shop-order-data-model/index.md)
+**Code:** `src/db/`, `src/modules/`, `src/storage/`, `src/jobs/`, and `drizzle/`
+
+- [x] Design it (spec): `/architect shop and order data model`
+- [x] Build it: `/develop shop and order data model`
+  - [x] Pin and configure the database driver, connection modes, schema roles, numeric contracts, domain foundation, shop bootstrap, catalog versions, and first submitted order thread (**AC-1**, **AC-2**, **AC-7**, **AC-8**, **AC-10**, **AC-11**, **AC-12**, **AC-15**, **AC-16**)
+  - [x] Add order and job lifecycle, complete quote replacements, deterministic amounts, decisions, corrections, concurrency, and derived progress (**AC-3**, **AC-4**, **AC-6**, **AC-8**, **AC-9**, **AC-11**, **AC-12**)
+  - [x] Add draft and order uploads, accepted objects, artwork and proof lineage, production holds, capability delivery, guest grant lifecycle, and strict authorization boundaries (**AC-1**, **AC-5**, **AC-6**, **AC-7**, **AC-9**, **AC-10**, **AC-11**, **AC-13**)
+  - [x] Add retention, fixed recovery schedules, event registries, operational indexes, monitoring, capacity proof, and real connection verification (**AC-9**, **AC-10**, **AC-11**, **AC-12**, **AC-13**, **AC-14**, **AC-16**)
+- [x] Verify it: `/check verify shop and order data model`
+- [x] Test it: `/test shop and order data model`
 
 ### 4. Design system and UI foundation · planned · needs a decision
 
