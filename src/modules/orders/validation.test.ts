@@ -9,7 +9,9 @@ import {
   priceRuleSchema,
   serviceDefinitionSchema,
   shopSettingsSchema,
+  shopSettingsReadSchema,
 } from "@/modules/orders/validation";
+import { pilotShopSettings } from "@/ui/theme/branding";
 
 const validSettings = {
   schema_version: "shop_settings.v1" as const,
@@ -18,11 +20,33 @@ const validSettings = {
 };
 
 describe("order data contracts", () => {
-  it("[AC-15] accepts the pilot shop settings and rejects extra fields", () => {
-    expect(shopSettingsSchema.parse(validSettings)).toEqual(validSettings);
+  it("[V2] accepts valid branded settings and rejects invalid settings", () => {
+    const settings = pilotShopSettings(7);
+
+    expect(shopSettingsReadSchema.parse(settings)).toEqual(settings);
     expect(() =>
-      shopSettingsSchema.parse({ ...validSettings, currency: "PKR" }),
+      shopSettingsSchema.parse({ ...settings, quote_validity_days: 0 }),
     ).toThrow();
+    expect(() =>
+      shopSettingsSchema.parse({
+        ...settings,
+        branding: {
+          ...settings.branding,
+          palette: { ...settings.branding.palette, primary: "red" },
+        },
+      }),
+    ).toThrow();
+    expect(() =>
+      shopSettingsSchema.parse({ ...settings, unexpected: true }),
+    ).toThrow();
+  });
+
+  it("[AC-15] accepts the pilot shop settings and rejects extra fields", () => {
+    expect(shopSettingsReadSchema.parse(validSettings)).toEqual(validSettings);
+    expect(() =>
+      shopSettingsReadSchema.parse({ ...validSettings, currency: "PKR" }),
+    ).toThrow();
+    expect(() => shopSettingsSchema.parse(validSettings)).toThrow();
   });
 
   it("[AC-2] keeps service and price definitions versioned and strict", () => {

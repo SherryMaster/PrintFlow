@@ -26,7 +26,7 @@ Your admin can also enter walk in and phone orders. One workspace holds services
 | 1   | Stack and architecture                        | Foundation | done    |
 | 2   | Coding standards and tooling                  | Foundation | done    |
 | 3   | Shop and order data model                     | Foundation | done    |
-| 4   | Design system and UI foundation               | Foundation | planned |
+| 4   | Design system and UI foundation               | Foundation | done    |
 | 5   | One standard job through pickup               | Slice 1    | planned |
 | 6   | Full service catalog and configurable pricing | Slice 2    | planned |
 | 7   | Multiple jobs in one order                    | Slice 3    | planned |
@@ -88,13 +88,24 @@ Define shop ownership and the relationships between services, pricing, orders, j
 - [x] Verify it: `/check verify shop and order data model`
 - [x] Test it: `/test shop and order data model`
 
-### 4. Design system and UI foundation · planned · needs a decision
+### 4. Design system and UI foundation · done
 
 Establish a professional, consistent interface for customers on phones and the admin at the shop. Keep configuration, prices, artwork issues, and production states easy to understand.
 
 **Done when:** shared forms, navigation, tables, status indicators, and feedback states cover both surfaces; keyboard use, focus, contrast, clear labels, and responsive layouts have concrete acceptance criteria; English text, PKR amounts, and local dates follow consistent rules.
 
-- [ ] Design it (spec): `/architect design system and UI foundation`
+**Spec:** [0004](../specs/0004-design-system-ui-foundation/index.md)
+
+- [x] Design it (spec): `/architect design system and UI foundation`
+- [x] Build it: `/develop design system and UI foundation`
+  - [x] Add versioned branding, validated theme resolution, pilot asset, and trusted shop context
+  - [x] Add semantic tokens, shared primitives, formatters, status, fields, and feedback
+  - [x] Add responsive customer and admin shells plus the development showcase
+  - [x] Check formatting, lint, types, unit tests, production build, browser behavior, and accessibility
+- [x] Verify it: `/check verify design system and UI foundation`
+- [x] Test it: `/test design system and UI foundation`
+
+**Code:** `src/ui/`, `src/modules/shop/theme.ts`, `src/modules/shop/commands.ts`, and `src/app/dev/ui/`.
 
 ## Slice 1: Prove one real order
 

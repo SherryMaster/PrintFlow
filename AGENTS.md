@@ -47,8 +47,15 @@ pnpm exec playwright test
 - Keep unit tests beside source files as `*.test.ts` or `*.test.tsx`.
 - Keep browser tests in `e2e/`.
 - Keep database, file, email, and background work behind server only boundaries.
+- Design system: build all UI to `design.md` (art direction and the maximalist product bar); token values live in CSS.
 
 ## Agent skills
+
+- [lucide-icons](.agents/skills/lucide-icons/): `aksuharun/skills`, Lucide icon usage and accessibility patterns.
+- [migrate-radix-to-base](.agents/skills/migrate-radix-to-base/): `shadcn/ui`, Radix to Base UI component migration.
+- [shadcn-baseui](.agents/skills/shadcn-baseui/): `thunderboltdev/shadcn-baseui`, shadcn components built on Base UI.
+- [shadcn](.agents/skills/shadcn/): `shadcn/ui`, shadcn component configuration and usage.
+- [web-styling-cva](.agents/skills/web-styling-cva/): `agents-inc/skills`, typed component variants with CVA.
 
 - [playwright-cli](.agents/skills/playwright-cli/): `microsoft/playwright-cli`, browser automation and Playwright testing.
 - [pnpm](.agents/skills/pnpm/): `antfu/skills`, package management and workspace conventions.
@@ -68,6 +75,8 @@ pnpm exec playwright test
 MCP servers: Playwright (`@playwright/mcp@latest`, connected).
 
 ## Context files
+
+- [src/app/dev/ui/AGENTS.md](src/app/dev/ui/AGENTS.md): development UI showcase boundaries and browser checks
 
 - [src/db/AGENTS.md](src/db/AGENTS.md): database schema, runtime client, numeric contracts, and transaction boundaries
 - [src/modules/catalog/AGENTS.md](src/modules/catalog/AGENTS.md): versioned service and price publication commands

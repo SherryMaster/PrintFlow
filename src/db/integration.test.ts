@@ -150,9 +150,22 @@ describe.skipIf(!runDatabaseTests)("real PostgreSQL order thread", () => {
       currency: "PKR",
       referencePrefix: "PF",
       settings: {
-        schema_version: "shop_settings.v1",
+        schema_version: "shop_settings.v2",
         quote_validity_days: 7,
         rounding_rule: "nearest_rupee_half_up",
+        branding: {
+          schema_version: "shop_branding.v1",
+          logo: {
+            key: "branding/okprints/ok-prints.png",
+            alt: "OkPrints logo",
+          },
+          palette: {
+            primary: "#ED3237",
+            supporting_red: "#C52F33",
+            ink: "#0A0500",
+            paper: "#FDFDFD",
+          },
+        },
       },
       firstAdminUserId: adminUserId,
       firstAdminDisplayName: "Pilot Admin",
