@@ -31,6 +31,18 @@
       "skillPath": "skills/inngest-setup/SKILL.md",
       "computedHash": "13f7025183bcfea6ebb5e27b1bfa5cbf8f3570847aba144538af12854667d04a"
     },
+    "lucide-icons": {
+      "source": "aksuharun/skills",
+      "sourceType": "github",
+      "skillPath": "lucide-icons/SKILL.md",
+      "computedHash": "f9e81a2119173db069d84712943a45c3a43ea5baf87bedabe3c859fe2d40d06e"
+    },
+    "migrate-radix-to-base": {
+      "source": "shadcn/ui",
+      "sourceType": "github",
+      "skillPath": "skills/migrate-radix-to-base/SKILL.md",
+      "computedHash": "e1f2030ee5059be3dff0812ca0e4b995ee9fa3132176f049ebe6c90346a6755e"
+    },
     "playwright-cli": {
       "source": "microsoft/playwright-cli",
       "sourceType": "github",
@@ -61,6 +73,18 @@
       "skillPath": "skills-legacy/sentry-sdk-setup/SKILL.md",
       "computedHash": "d7fb017bcc2e3eb93280843b3343cc3aa8040a8667208c1ee083738be6420b7a"
     },
+    "shadcn": {
+      "source": "shadcn/ui",
+      "sourceType": "github",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "computedHash": "f615de216e085a84e31593ad0fa9062232adc40cd87b7c7ab2b8e49abf6500be"
+    },
+    "shadcn-baseui": {
+      "source": "thunderboltdev/shadcn-baseui",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "380e7185d6bf13195fbedd8b1c59a0e11805357a62737ee35857887217055444"
+    },
     "tailwind-css-patterns": {
       "source": "giuseppe-trisciuoglio/developer-kit",
       "sourceType": "github",
@@ -78,6 +102,12 @@
       "sourceType": "github",
       "skillPath": "skills/vitest/SKILL.md",
       "computedHash": "943d436114c677802426741980146c07560bf375297666b03062444f4b98a785"
+    },
+    "web-styling-cva": {
+      "source": "agents-inc/skills",
+      "sourceType": "github",
+      "skillPath": "src/skills/web-styling-cva/SKILL.md",
+      "computedHash": "1be7af6fb7fcebea21b80c059626ef8d540ea193823f785399326ec883eca2f3"
     },
     "zod": {
       "source": "pproenca/dot-skills",

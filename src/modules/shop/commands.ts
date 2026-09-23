@@ -14,6 +14,9 @@ import {
   shops,
 } from "@/db/schema";
 import { shopSettingsSchema } from "@/modules/orders/validation";
+import type { AdminAuthority } from "@/modules/shop/authorization";
+import { resolveShopTheme } from "@/ui/theme/theme";
+import { pilotShopSettings } from "@/ui/theme/branding";
 
 const bootstrapInputSchema = z
   .object({
@@ -31,8 +34,48 @@ const bootstrapInputSchema = z
 
 export type BootstrapShopInput = z.input<typeof bootstrapInputSchema>;
 
+export function bootstrapPilotShop(
+  input: Omit<BootstrapShopInput, "settings"> & { quoteValidityDays: number },
+) {
+  const { quoteValidityDays, ...profile } = input;
+  return bootstrapShop({
+    ...profile,
+    settings: pilotShopSettings(quoteValidityDays),
+  });
+}
+
+export async function updateShopSettings(input: {
+  authority: AdminAuthority;
+  expectedVersion: number;
+  settings: z.input<typeof shopSettingsSchema>;
+}) {
+  z.int().positive().parse(input.expectedVersion);
+  const settings = shopSettingsSchema.parse(input.settings);
+  if (resolveShopTheme({ name: "Shop", settings }).warning)
+    throw new Error("invalid_branding");
+  const { db } = getDatabase();
+  const [updated] = await db
+    .update(shops)
+    .set({
+      settings,
+      version: input.expectedVersion + 1,
+      updatedAt: new Date(),
+    })
+    .where(
+      and(
+        eq(shops.id, input.authority.shopId),
+        eq(shops.version, input.expectedVersion),
+      ),
+    )
+    .returning({ id: shops.id, version: shops.version });
+  if (!updated) throw new Error("conflict");
+  return updated;
+}
+
 export async function bootstrapShop(rawInput: BootstrapShopInput) {
   const input = bootstrapInputSchema.parse(rawInput);
+  if (resolveShopTheme({ name: input.name, settings: input.settings }).warning)
+    throw new Error("invalid_branding");
   const fingerprint = requestFingerprint(input);
   const { db } = getDatabase();
 

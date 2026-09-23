@@ -1,69 +1,86 @@
-import Image from "next/image";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ClipboardList,
+  PackageCheck,
+} from "lucide-react";
+
+import { Button } from "@/ui/primitives/button";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/ui/primitives/card";
+import { CustomerShell } from "@/ui/shells/customer-shell";
+import { safeAppTheme } from "@/ui/theme/theme";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <CustomerShell theme={safeAppTheme("PrintFlow")}>
+      <div className="lg:col-span-2">
+        <section className="rounded-3xl bg-card px-6 py-14 shadow-sm ring-1 ring-border sm:px-12 sm:py-20">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            Print ordering, made clear
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight sm:text-6xl">
+            From first file to final pickup.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+            PrintFlow brings order details, artwork review, production updates,
+            and pickup information together in one simple path.
+          </p>
+          <p className="mt-8 text-sm text-muted-foreground">
+            The first shop ordering journey is being prepared.
+          </p>
+          {process.env.NODE_ENV !== "production" && (
+            <Button
+              className="mt-5 min-h-11"
+              nativeButton={false}
+              render={<a href="/dev/ui" />}
+            >
+              View UI foundation{" "}
+              <ArrowRight data-icon="inline-end" aria-hidden="true" />
+            </Button>
+          )}
+        </section>
+        <section
+          aria-label="How it works"
+          className="mt-10 grid gap-4 md:grid-cols-3"
+        >
+          <Card>
+            <CardHeader>
+              <ClipboardList className="size-6 text-info" aria-hidden="true" />
+              <CardTitle>Set your print details</CardTitle>
+              <CardDescription>
+                Choose what you need and see the important choices before
+                submitting.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CheckCircle2
+                className="size-6 text-success"
+                aria-hidden="true"
+              />
+              <CardTitle>Review with confidence</CardTitle>
+              <CardDescription>
+                Artwork questions and production status stay easy to follow.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+          <Card>
+            <CardHeader>
+              <PackageCheck className="size-6 text-info" aria-hidden="true" />
+              <CardTitle>Know when to collect</CardTitle>
+              <CardDescription>
+                See the confirmed next step when your work is ready.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </section>
+      </div>
+    </CustomerShell>
   );
 }

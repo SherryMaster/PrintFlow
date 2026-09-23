@@ -1,0 +1,109 @@
+[    1380ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_1e2i5io._.js:776
+[    1520ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_1e2i5io._.js:776
+[    1922ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <UiShowcase>
+      <CustomerShell>
+        <div style={{...}} className="flex min-h...">
+          <a>
+          <header>
+          ...
+            <section id="customer-p..." className="flex flex-...">
+              <div>
+              <div>
+              <section id="components" className="grid gap-5">
+                <h2>
+                <Card>
+                  <div data-slot="card" data-size="default" className={"group/ca..."}>
+                    <div>
+                    ...
+                      <FieldGroup>
+                        <div data-slot="field-group" className="group/fiel...">
+                          <TextField>
+                            <Field data-invalid={false}>
+                              <div role="group" data-slot="field" data-orientation="vertical" className={"group/fi..."} ...>
+                                <FieldLabel>
+                                <FieldDescription>
+                                <Input>
+                                  <Input data-slot="input" className="h-8 w-full..." id="customer-name" required={true} ...>
+                                    <FieldControl ref={null} data-slot="input" className="h-8 w-full..." ...>
+                                      <input
+                                        id="customer-name"
+                                        disabled={false}
+                                        name={undefined}
+                                        ref={function}
+                                        aria-labelledby={undefined}
+                                        autoFocus={false}
+                                        defaultValue={undefined}
+                                        onChange={function}
+                                        onFocus={function}
+                                        onBlur={function}
+                                        onKeyDown={function}
+                                        data-slot="input"
+                                        required={true}
+                                        aria-invalid={false}
+                                        aria-describedby="customer-name-description"
+                                        placeholder="Full name"
+                                        className="h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px..."
+-                                       style={{caret-color:"transparent"}}
+                                      >
+                          <TextField>
+                            <Field data-invalid={true}>
+                              <div role="group" data-slot="field" data-orientation="vertical" className={"group/fi..."} ...>
+                                <FieldLabel>
+                                <Input>
+                                  <Input type="email" data-slot="input" className="h-8 w-full..." id="customer-e..." ...>
+                                    <FieldControl ref={null} type="email" data-slot="input" className="h-8 w-full..." ...>
+                                      <input
+                                        id="customer-email"
+                                        disabled={false}
+                                        name={undefined}
+                                        ref={function}
+                                        aria-labelledby={undefined}
+                                        autoFocus={false}
+                                        defaultValue="wrong-address"
+                                        onChange={function}
+                                        onFocus={function}
+                                        onBlur={function}
+                                        onKeyDown={function}
+                                        type="email"
+                                        data-slot="input"
+                                        required={true}
+                                        aria-invalid={true}
+                                        aria-describedby="customer-email-error"
+                                        className="h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px..."
+-                                       style={{caret-color:"transparent"}}
+                                      >
+                                ...
+                ...
+          ...
+      ...
+ @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_1e2i5io._.js:1052
+[    2182ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_1e2i5io._.js:776
+[    2213ms] [LOG] [Fast Refresh] done in 129ms @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_1e2i5io._.js:776
+[  208389ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_1e2i5io._.js:776
+[  208466ms] [LOG] [Fast Refresh] done in 179ms @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_1e2i5io._.js:776
+[  616198ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  617200ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  618201ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  619202ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  620205ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  625210ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  630217ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  635233ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  640245ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  645294ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  650449ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  655722ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=LQduflD59whdVC1UOKxUA' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/1bm0_next_dist_client_1o8qapy._.js:16348
+[  751841ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/dev/ui:0

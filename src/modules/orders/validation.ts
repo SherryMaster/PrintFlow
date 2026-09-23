@@ -1,14 +1,11 @@
 import { z } from "zod";
 
 import { moneyStringSchema, positiveNumericStringSchema } from "@/db/contracts";
-
-export const shopSettingsSchema = z
-  .object({
-    schema_version: z.literal("shop_settings.v1"),
-    quote_validity_days: z.int().positive(),
-    rounding_rule: z.literal("nearest_rupee_half_up"),
-  })
-  .strict();
+export {
+  shopSettingsV1Schema,
+  shopSettingsSchema,
+  shopSettingsReadSchema,
+} from "@/ui/theme/branding";
 
 export const serviceDefinitionSchema = z
   .object({
